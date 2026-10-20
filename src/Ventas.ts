@@ -59,3 +59,17 @@ export const obtenerImportesPagados = (
 		.filter(venta => venta.pagada)
 		.map(venta => venta.importe);
 };
+
+export const obtenerProductosTecnologiaPagados = (
+	ventas: Venta[]
+): string[] => {
+	return ventas
+		.filter(
+			venta =>
+				venta.pagada &&
+				venta.categoria === "tecnologia"
+		)
+		.map(
+			venta => venta.producto
+		);
+};
