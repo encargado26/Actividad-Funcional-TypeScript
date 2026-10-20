@@ -51,3 +51,11 @@ export const obtenerVentasPagadas = (
 		venta => venta.pagada
 	);
 };
+
+export const obtenerImportesPagados = (
+	ventas: Venta[]
+): number[] => {
+	return ventas
+		.filter(venta => venta.pagada)
+		.map(venta => venta.importe);
+};
