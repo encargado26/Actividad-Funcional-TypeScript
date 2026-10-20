@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import {ventas,obtenerVentasPagadas,obtenerImportesPagados} from "../src/Ventas";
+import {ventas,obtenerVentasPagadas,obtenerImportesPagados,obtenerProductosTecnologiaPagados} from "../src/Ventas";
 
 describe("Ventas", () => {
 
@@ -11,12 +11,11 @@ describe("Ventas", () => {
 
 	it("debería obtener los importes de las ventas pagadas", () => {
 		const resultado = obtenerImportesPagados(ventas);
+		expect(resultado).toEqual([25000,18000,32000,150000]);
+	});
 
-		expect(resultado).toEqual([
-			25000,
-			18000,
-			32000,
-			150000
-		]);
+	it("debería obtener los productos de tecnología pagados", () => {
+		const resultado = obtenerProductosTecnologiaPagados(ventas);
+		expect(resultado).toEqual(["Mouse","Monitor"]);
 	});
 });
